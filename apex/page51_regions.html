@@ -1,0 +1,87 @@
+<!-- RGN_P51_PAGE_HEADER : SUPPRIMÉ — laisser Source vide ou Delete Region -->
+
+<!-- RGN_P51_LOT_SEARCH_PANEL -->
+<div class="inv700-search">
+  <div class="inv700-search__head">
+    <h2 class="inv700-search__title">Find lot</h2>
+    <div class="inv700-search__filters">
+      <button type="button" id="inv700-filter-open" class="inv700-btn inv700-btn--filter is-active" data-filter="OPEN">Open</button>
+      <button type="button" id="inv700-filter-all" class="inv700-btn inv700-btn--filter" data-filter="ALL">All</button>
+    </div>
+  </div>
+  <div class="inv700-search__panel">
+    <p class="inv700-hint">LOT#, WKS ORDER, PRODUCT, YARN-FLG, or MCODE — try <strong style="font-family:monospace">2608</strong> for multiple lots</p>
+    <div class="inv700-search__row">
+      <input type="text" id="P51_SEARCH" class="inv700-input" placeholder="e.g. 2608, 2608-0027, 1F" autocomplete="off" />
+      <button type="button" id="inv700-btn-load" class="inv700-btn inv700-btn--primary">Load lot</button>
+    </div>
+  </div>
+</div>
+
+<!-- RGN_P51_MASTER_DETAIL_WORKSPACE -->
+<div id="inv700-workspace" class="inv700-workspace inv700-workspace--empty">
+  <aside id="inv700-lot-list" class="inv700-lot-list" aria-label="Matching lots">
+    <div class="inv700-lot-list__head">
+      <span id="inv700-lot-count" class="inv700-lot-list__count">0 lots</span>
+      <span class="inv700-lot-list__hint">Click to preview — close one at a time</span>
+    </div>
+    <div id="inv700-lot-list-body" class="inv700-lot-list__body"></div>
+  </aside>
+
+  <main id="inv700-detail" class="inv700-detail">
+    <div id="inv700-detail-empty" class="inv700-detail__empty">
+      <p>Select a lot from the list or search above.</p>
+    </div>
+
+    <div id="inv700-detail-content" class="inv700-detail__content inv700-hidden">
+      <div class="inv700-lot-grid">
+        <section class="inv700-lot-hero" id="inv700-lot-hero">
+          <div id="inv700-stamp" class="inv700-stamp inv700-hidden">CLOSED!!</div>
+          <div class="inv700-lot-hero__meta">
+            <span class="inv700-label">Main spin lot</span>
+            <span id="inv700-lot-no" class="inv700-lot-no"></span>
+            <span id="inv700-lot-id" class="inv700-lot-id"></span>
+          </div>
+          <dl class="inv700-dl">
+            <div><dt>Product</dt><dd id="inv700-product"></dd></div>
+            <div><dt>Yarn flag</dt><dd id="inv700-yarn"></dd></div>
+            <div><dt>MCODE</dt><dd id="inv700-mcode"></dd></div>
+            <div><dt>Sched date</dt><dd id="inv700-date-sch"></dd></div>
+          </dl>
+        </section>
+        <section class="inv700-metrics">
+          <span class="inv700-label">Quantities</span>
+          <dl class="inv700-metrics__grid">
+            <div><dt>Qty ordered</dt><dd id="inv700-qty-ord"></dd></div>
+            <div><dt>Qty received</dt><dd id="inv700-qty-rec"></dd></div>
+            <div><dt>Qty on hand</dt><dd id="inv700-qoh"></dd></div>
+            <div><dt>Blend wt</dt><dd id="inv700-kgs1"></dd></div>
+            <div><dt>Card wt</dt><dd id="inv700-kgs2"></dd></div>
+          </dl>
+        </section>
+      </div>
+
+      <section class="inv700-impact">
+        <div class="inv700-impact__head">
+          <h2 class="inv700-impact__title">Closing impact</h2>
+          <span id="inv700-impact-summary" class="inv700-impact__summary"></span>
+        </div>
+        <p class="inv700-hint">Review what will be closed before confirming.</p>
+        <div id="inv700-progress" class="inv700-progress inv700-hidden">
+          <div id="inv700-progress-bar" class="inv700-progress__bar"></div>
+        </div>
+        <ul id="inv700-impact-list" class="inv700-impact-list"></ul>
+      </section>
+    </div>
+  </main>
+</div>
+
+<!-- RGN_P51_CLOSE_ACTION_BAR -->
+<div id="inv700-action-bar" class="inv700-action-bar inv700-hidden">
+  <span id="inv700-action-lot" class="inv700-action-bar__lot"></span>
+  <span id="inv700-action-msg" class="inv700-action-bar__msg"></span>
+  <div class="inv700-action-bar__buttons">
+    <button type="button" id="inv700-btn-clear" class="inv700-btn inv700-btn--ghost">Clear selection</button>
+    <button type="button" id="inv700-btn-close" class="inv700-btn inv700-btn--primary" disabled>Close SPIN-LOT</button>
+  </div>
+</div>
